@@ -4,8 +4,9 @@
   "description": "A full-stack web application to manage personal projects and tasks with authentication and modern UI.",
   "main": "index.js",
   "scripts": {
-    "build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client",
-    "start": "npm run start --prefix server"
+    "install": "cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm run build",
+    "start": "npm run build && cd server && npm start"
   },
   "keywords": [],
   "author": "",
