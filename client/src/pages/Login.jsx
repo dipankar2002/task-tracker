@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuthStore } from '../store/authStore.js';
 import { Link } from 'react-router-dom';
+import { Loader2 } from 'lucide-react';
 
 export default function Login() {
   const { login, isLoggingIn } = useAuthStore();
@@ -23,8 +24,8 @@ export default function Login() {
         onSubmit={handleSubmit}
       > 
         <header className='text-center pb-2 px-10'>
-          <h1 className=' text-3xl font-bold pb-2'>Sign Up</h1>
-          <div className='text-xl text-gray-600'>Enter your information to create an account</div>
+          <h1 className=' text-3xl font-bold pb-2'>Welcome Back</h1>
+          <div className='text-xl text-gray-600'>Login to your account</div>
         </header>
         <input 
           name="email" 
@@ -43,7 +44,13 @@ export default function Login() {
           required 
         />
 
-        <button className="bg-blue-500 w-[100%] py-2 text-white font-bold rounded-md mt-6">Login</button>
+        <button 
+          className="bg-blue-500 w-[100%] py-2 text-white font-bold rounded-md mt-6"
+          disabled={isLoggingIn}
+        >{isLoggingIn ? (
+          <><Loader2 className="size-5 animate-spin" />Loading...</>
+          ) : "Login"
+        }</button>
 
         <footer className='text-center pt-2'>
           Already have an account?

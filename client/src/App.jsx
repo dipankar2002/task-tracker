@@ -15,11 +15,6 @@ export default function App() {
 
   useEffect(() => {
     checkAuth();
-    searchUser('');
-    searchProjects();
-    if(selectedProject) {
-      searchTasks(selectedProject._id);
-    }
   },[checkAuth, selectedProject, searchUser, searchProjects, searchTasks]);
 
   if(isCheckingAuth && !authUser) {

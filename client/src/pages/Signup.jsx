@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Select from "react-select";
 import countryList from '../utils/countryList.js';
 import { axiosInstance } from '../api/axios.js';
+import { Loader2 } from 'lucide-react';
 
 export default function Signup() {
   const { signup, isSigningUp } = useAuthStore();
@@ -75,7 +76,13 @@ export default function Signup() {
           isSearchable
         />
 
-        <button className="bg-blue-500 w-[100%] py-2 text-white font-bold rounded-md mt-6">Sign Up</button>
+        <button 
+          className="bg-blue-500 w-[100%] py-2 text-white font-bold rounded-md mt-6"
+          disabled={isSigningUp}
+        >{isSigningUp ? (
+          <><Loader2 className="size-5 animate-spin" />Loading...</>
+          ) : "Create Account"
+        }</button>
 
         <footer className='text-center pt-2'>
           Already have an account?

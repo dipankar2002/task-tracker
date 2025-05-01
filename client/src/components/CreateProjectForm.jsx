@@ -5,7 +5,7 @@ const CreateProjectForm = ({children}) => {
   const { projectList } = useAuthStore();
 
   return (
-    <div className='flex items-center justify-end space-x-6 w-full h-full'>
+    <div className='grid grid-cols-1 items-center justify-end space-x-6 w-full h-full'>
       {projectList.length === 0 ?
         <div className='text-center text-2xl font-bold mb-4'>No projects found!! Create One</div> : 
         <div>

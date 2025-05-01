@@ -6,12 +6,12 @@ const TaskShow = () => {
 
   return (
     <div>
-      <div className='flex justify-between items-center px-4'>
+      <div className=' flex justify-between items-center px-4'>
         {selectedProject === null ? (
           <span className='text-2xl font-bold'>Select a project to see the tasks</span>
         ):null}
         {taskList.length === 0 && selectedProject && (
-          <span className='text-2xl font-bold'>No Task available</span>
+          <span className='text-2xl font-bold mx-auto'>No Task available</span>
         )}
         {selectedProject && taskList.length > 0 && (
           <span className='text-2xl font-bold'>All Tasks</span>
@@ -24,7 +24,7 @@ const TaskShow = () => {
         )}
       </div>
       { selectedProject && (
-        <div className='flex flex-col space-y-4 w-full pt-4'>
+        <div className='flex flex-col space-y-4 pt-4'>
           { taskList.map((task,i) => <TaskList key={i} task={task}/>)}
         </div>
       )}
@@ -69,11 +69,11 @@ function TaskList({ task }) {
         {!task.completedAt && <button 
           className='bg-green-300 px-2 py-0.5 rounded'
           onClick={() => {completeTask(task._id)}}
-        >Make Complete</button>}
+        >Done</button>}
         {task.completedAt && <button 
           className='bg-gray-300 px-2 py-0.5 rounded'
           onClick={() => {unCompleteTask(task._id)}}
-        >Undo Complete</button>}
+        >Not Done</button>}
         <div className='flex space-x-2'>
           <button 
             className='bg-yellow-300 px-2 py-0.5 rounded'
@@ -85,7 +85,7 @@ function TaskList({ task }) {
       {openEditForm && (
         <form 
           onSubmit={updateHandle}
-          className='flex items-center space-x-2' 
+          className='grid grid-cols-1 items-center space-x-2 space-y-2' 
         >
           <input
               name="title"

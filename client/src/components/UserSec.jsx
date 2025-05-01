@@ -4,7 +4,7 @@ import { useAuthStore } from '../store/authStore';
 const UserSec = ({ children }) => {
   const { authUser } = useAuthStore();
   return (
-    <div className='flex justify-start space-x-20 items-center pb-10'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 justify-start space-x-20 items-center pb-10'>
       <div className='flex flex-col space-y-1'>
         <div className='text-4xl font-bold'>{authUser.name}</div>
         <div className='flex items-center space-x-2'>
