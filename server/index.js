@@ -69,12 +69,13 @@ io.on('connection', (socket) => {
 // Make io accessible in routes/controllers
 app.set('io', io);
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')));
-  app.get('*', (req, res) => {
+  app.get('/:path(*)', (req, res) => {
     res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
   });
 }
+
 
 // Start Server
 const PORT = process.env.PORT || 3000;
