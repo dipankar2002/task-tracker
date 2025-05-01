@@ -41,33 +41,8 @@ import projectRoutes from './routes/project.js';
 import taskRoutes from './routes/task.js';
 
 app.use('/api/auth', authRoutes);
-// app.use('/api/projects', projectRoutes);
-// app.use('/api/tasks', taskRoutes);
-
-// --- SOCKET.IO CONNECTION ---
-io.on('connection', (socket) => {
-  console.log('✅ New client connected:', socket.id);
-
-  socket.on('disconnect', () => {
-    console.log('❌ Client disconnected:', socket.id);
-  });
-
-  // Optional: Handle task-created or task-updated from client
-  socket.on('task-created', (task) => {
-    socket.broadcast.emit('task-changed', task); // notify others
-  });
-
-  socket.on('task-updated', (task) => {
-    socket.broadcast.emit('task-changed', task);
-  });
-
-  socket.on('task-deleted', (taskId) => {
-    socket.broadcast.emit('task-removed', taskId);
-  });
-});
-
-// Make io accessible in routes/controllers
-app.set('io', io);
+app.use('/api/projects', projectRoutes);
+app.use('/api/tasks', taskRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')));
