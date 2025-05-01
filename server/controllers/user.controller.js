@@ -4,7 +4,6 @@ import { generateToken } from '../utils/generateTocken.js';
 import { loginSchema } from '../../../payment-app/backend/src/zod/user.zod.js';
 import { userSignupZod } from '../zod/userZod.js';
 import ProjectDb from '../models/project.js';
-import { deleteTask } from './task.controller.js';
 import TaskDb from '../models/Task.js';
 
 
