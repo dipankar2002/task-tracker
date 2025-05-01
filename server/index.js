@@ -41,8 +41,8 @@ import projectRoutes from './routes/project.js';
 import taskRoutes from './routes/task.js';
 
 app.use('/api/auth', authRoutes);
-app.use('/api/projects', projectRoutes);
-app.use('/api/tasks', taskRoutes);
+// app.use('/api/projects', projectRoutes);
+// app.use('/api/tasks', taskRoutes);
 
 // --- SOCKET.IO CONNECTION ---
 io.on('connection', (socket) => {
@@ -71,8 +71,8 @@ app.set('io', io);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')));
-  app.get('/:path(*)', (req, res) => {
-    res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
   });
 }
 
