@@ -5,6 +5,9 @@
   "scripts": {
     "start": "node index.js"
   },
+    "resolutions": {
+    "path-to-regexp": "6.2.1"
+  },
   "keywords": [],
   "author": "",
   "type": "module",

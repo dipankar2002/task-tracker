@@ -13,12 +13,6 @@ dotenv.config();
 const __dirname = path.resolve();
 const app = express();
 const server = http.createServer(app);
-const io = new socketIo(server, {
-  cors: {
-    origin: ['http://localhost:5173'], // frontend
-    credentials: true,
-  },
-});
 
 // Middleware
 app.use(cors({ 
