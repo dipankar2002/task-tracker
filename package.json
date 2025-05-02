@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A full-stack web application to manage personal projects and tasks.",
   "scripts": {
-    "build": "cd client && npm install && npm run build && cd ../server && npm install",
-    "start": "npm start --prefix server"
+    "build": "npm install && npm run build --prefix client",
+    "start": "npm run start --prefix server"
   }
 ,
   "author": "",
