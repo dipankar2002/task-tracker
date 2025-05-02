@@ -1,6 +1,5 @@
 import express from 'express';
 import http from 'http';
-import { Server as socketIo } from 'socket.io';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -11,6 +10,8 @@ import { fileURLToPath } from 'url';
 // Load environment variables
 dotenv.config();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const PORT = process.env.PORT || 3000;
 const app = express();
 const server = http.createServer(app);
 
@@ -45,10 +46,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-
-
 // Start Server
-const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
