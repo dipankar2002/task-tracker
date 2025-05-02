@@ -15,14 +15,14 @@ const app = express();
 const server = http.createServer(app);
 const io = new socketIo(server, {
   cors: {
-    origin: ['http://localhost:5173'], // frontend
+    origin: ['https://task-tracker-client-4j5d.onrender.com'], // frontend
     credentials: true,
   },
 });
 
 // Middleware
 app.use(cors({ 
-  origin: 'http://localhost:5173', 
+  origin: 'https://task-tracker-client-4j5d.onrender.com', 
   credentials: true 
 }));
 app.use(express.json());

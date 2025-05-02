@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: 'https://task-tracker-server-i7st.onrender.com/api',
   withCredentials: true, // For cookies
 });
