@@ -1,11 +1,10 @@
-import { UserDb } from '../models/User.js';
+import { UserDb } from '../models/user.js';
 import { comparePassword, hashPassword } from '../utils/hashPass.js';
 import { generateToken } from '../utils/generateTocken.js';
 import { loginSchema } from '../../../payment-app/backend/src/zod/user.zod.js';
 import { userSignupZod } from '../zod/userZod.js';
 import ProjectDb from '../models/project.js';
-import { deleteTask } from './task.controller.js';
-import TaskDb from '../models/Task.js';
+import TaskDb from '../models/task.js';
 
 
 export const checkUser = (req,res) => {
