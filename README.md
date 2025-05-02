@@ -6,7 +6,7 @@ A full-stack web application to manage personal projects and tasks with authenti
 
 ## 🔗 Live Demo
 
-[] *(replace with your actual deployment URL)*
+[https://task-tracker-client-4j5d.onrender.com] *(replace with your actual deployment URL)*
 
 ---
 
@@ -82,7 +82,7 @@ npm start
 
 frontend
 
-cd ../frontend
+cd ../client
 npm run dev
 
 Then visit: http://localhost:5173
