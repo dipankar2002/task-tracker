@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "A full-stack web application to manage personal projects and tasks.",
   "scripts": {
-    "install": "npm install --prefix client && npm install --prefix server",
-    "build": "npm run build --prefix client",
-    "start": "node server/index.js"
-  },
+    "build": "cd client && npm install && npm run build && cd ../server && npm install",
+    "start": "npm start --prefix server"
+  }
+,
   "author": "",
   "license": "ISC"
 }
