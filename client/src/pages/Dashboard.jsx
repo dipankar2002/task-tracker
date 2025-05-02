@@ -3,7 +3,6 @@ import io from 'socket.io-client';
 import UserSec from '../components/UserSec';
 import CreateProjectForm from '../components/CreateProjectForm';
 import { useAuthStore } from '../store/authStore';
-import { create } from 'zustand';
 import TaskShow from '../components/TaskShow';
 
 const socket = io('http://localhost:3000');

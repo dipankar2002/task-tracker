@@ -33,7 +33,7 @@ const TaskShow = () => {
 }
 
 function TaskList({ task }) {
-  const { completeTask, unCompleteTask, updateTask } = useAuthStore();
+  const { completeTask, unCompleteTask, updateTask, deleteTask } = useAuthStore();
   const [ openEditForm, setOpenEditForm ] = useState(false);
   const [ editTask, setEditTask ] = useState({
     title: '',
@@ -79,7 +79,10 @@ function TaskList({ task }) {
             className='bg-yellow-300 px-2 py-0.5 rounded'
             onClick={() => {setOpenEditForm((prev) => !prev)}}
           >{openEditForm ? 'Close' : 'Edit'}</button>
-          <button className='bg-red-400 text-white px-2 py-0.5 rounded'>Delete</button>
+          <button 
+            className='bg-red-400 text-white px-2 py-0.5 rounded'
+            onClick={() => {deleteTask(task._id)}}
+          >Delete</button>
         </div>
       </div>
       {openEditForm && (

@@ -98,6 +98,21 @@ export const useAuthStore = create((set) => ({
       toast.error('An error occurred while updating the task. Please try again.');
     }
   },
+  deleteTask: async (taskId) => {
+    try {
+      const res = await axiosInstance.delete(`/tasks/delete/${taskId}`)
+      if (res.data.success) {
+        set((state) => ({
+          taskList: state.taskList.filter((task) => task._id !== taskId)
+        }));
+        toast.success(res.data.message);
+      } else {
+        toast.error(res.data.message);
+      }
+    } catch (error) {
+      toast.error('An error occurred while updating the task. Please try again.');
+    }
+  },
 
   // projects functions
   searchProjects: async () => {
