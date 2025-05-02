@@ -10,8 +10,7 @@ import { fileURLToPath } from 'url';
 
 // Load environment variables
 dotenv.config();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 const server = http.createServer(app);
 
@@ -40,11 +39,9 @@ app.use('/api/projects', projectRoutes);
 app.use('/api/tasks', taskRoutes);
 
 if (process.env.NODE_ENV === 'production') {
-  const frontendPath = path.resolve(__dirname, '../client/dist');
-  app.use(express.static(frontendPath));
-
+  app.use(express.static(path.join(__dirname, '../client/dist')));
   app.get('*', (req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'));
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
   });
 }
 
