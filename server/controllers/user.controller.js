@@ -1,9 +1,11 @@
-import { UserDb } from '../models/user.js';
+import { UserDb } from '../models/User.js';
 import { comparePassword, hashPassword } from '../utils/hashPass.js';
 import { generateToken } from '../utils/generateTocken.js';
-import { userLoginZod, userSignupZod } from '../zod/userZod.js';
+import { loginSchema } from '../../../payment-app/backend/src/zod/user.zod.js';
+import { userSignupZod } from '../zod/userZod.js';
 import ProjectDb from '../models/project.js';
-import TaskDb from '../models/task.js';
+import { deleteTask } from './task.controller.js';
+import TaskDb from '../models/Task.js';
 
 
 export const checkUser = (req,res) => {
@@ -120,7 +122,7 @@ export const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const { success, error } = userLoginZod.safeParse({
+    const { success, error } = loginSchema.safeParse({
       email: email,
       password: password,
     });

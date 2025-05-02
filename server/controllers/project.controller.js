@@ -6,7 +6,7 @@ export const deleteProject = async (req, res) => {
   const userId = req.user._id;
 
   try {
-    const project = await ProjectDb.findOneAndDelete({ 
+    const project = await ProjectDb.findOneAndDelete({
       _id: id,
       createBy: userId,
     });

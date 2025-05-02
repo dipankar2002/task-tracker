@@ -7,7 +7,6 @@ import { Loader } from 'lucide-react';
 import { Toaster } from 'react-hot-toast';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
-import ProfileVisit from './pages/ProfileVisit';
 
 
 export default function App() {
@@ -32,7 +31,6 @@ export default function App() {
         <Route path="/" element={authUser ? <Dashboard />:<Navigate to="login" />} />
         <Route path="/signup" element={!authUser ? <Signup /> : <Navigate to="/"/>} />
         <Route path="/login" element={!authUser ? <Login /> : <Navigate to="/"/>} />
-        <Route path="/user/:username" element={authUser ? <ProfileVisit /> : <Navigate to="/login" />} />
       </Routes>
       <Toaster />
     </div>
