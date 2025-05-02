@@ -5,14 +5,10 @@
   "scripts": {
     "start": "node index.js"
   },
-    "resolutions": {
+  "resolutions": {
     "path-to-regexp": "6.2.1"
   },
-  "keywords": [],
-  "author": "",
   "type": "module",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",
@@ -23,7 +19,6 @@
     "mongoose": "^8.14.0",
     "nodemon": "^3.1.10",
     "socket.io": "^4.8.1",
-    "task-tracker": "file:..",
     "zod": "^3.24.3"
   }
 }
